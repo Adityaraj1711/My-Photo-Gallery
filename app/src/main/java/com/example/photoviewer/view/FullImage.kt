@@ -7,12 +7,13 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.photoviewer.R
-import kotlinx.android.synthetic.main.gallery_item.*
+import com.github.chrisbanes.photoview.PhotoView
 import java.io.File
+
 
 class FullImage : AppCompatActivity() {
     private val TAG = "FullImage"
-    lateinit var imageViewFullImage: ImageView
+    lateinit var imageViewFullImage: PhotoView
     lateinit var imagePath: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,7 @@ class FullImage : AppCompatActivity() {
             imagePath = intent.getStringExtra("image_path")!!
             val file = File(imagePath)
             val imageUri: Uri = Uri.fromFile(file)
+
             Glide.with(this)
                 .load(imageUri)
                 .into(imageViewFullImage)

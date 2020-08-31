@@ -47,5 +47,8 @@ dependencies {
     // networking
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
 
+    // photo view
+    implementation 'com.github.chrisbanes:PhotoView:2.1.4'
+
 
 }
