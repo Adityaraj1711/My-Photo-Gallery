@@ -11,7 +11,7 @@ object ImageGallery {
         val uri: Uri
         val cursor: Cursor?
         val column_index_data: Int
-        var column_index_folder_name: Int
+//        var column_index_folder_name: Int
         val listOfAllImage =
             ArrayList<String>()
         var absolutePathOfImage: String
