@@ -1,5 +1,6 @@
 package com.example.photoviewer
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.photoviewer.adapter.GalleryAdapter
 import com.example.photoviewer.clicklistener.PhotoListener
 import com.example.photoviewer.util.ImageGallery
+import com.example.photoviewer.view.FullImage
 
 class MainActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
@@ -62,7 +64,9 @@ class MainActivity : AppCompatActivity() {
         galleryAdapter = GalleryAdapter(this, images, object : GalleryAdapter.PhotoListener{
             override fun onPhotoClick(path: String) {
                 Toast.makeText(this@MainActivity,  path.toString(), Toast.LENGTH_SHORT).show()
-
+                val intent = Intent(this@MainActivity, FullImage::class.java)
+                intent.putExtra("image_path", path)
+                startActivity(intent)
             }
         })
         recyclerView.adapter = galleryAdapter
